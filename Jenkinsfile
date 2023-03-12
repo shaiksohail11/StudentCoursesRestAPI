@@ -13,13 +13,13 @@ pipeline{
 
         stage('build docker image') {
             steps{
-                sh "docker image build -t shaik1128/studentcourse:1.1"
+                sh "docker image build -t shaik1128/studentcourse:latest"
             }
         }
 
         stage('push to registry') {
             steps {
-                sh "docker push shaik1128/studentcourse:1.1"
+                sh "docker push shaik1128/studentcourse:latest"
             }
         }
 
