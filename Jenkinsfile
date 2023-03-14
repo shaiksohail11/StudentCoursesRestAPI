@@ -1,7 +1,7 @@
 pipeline{
     agent{label 'azure_node'}
     triggers {
-        pollSCM('* 23 * * 1-5')
+        pollSCM('* * * * *')
 }
       stages{
         stage('vcs') {
@@ -13,13 +13,13 @@ pipeline{
 
         stage('build docker image') {
             steps{
-                sh "sudo docker image build -t shaik1128/studentcourse:latest ."
+                sh "docker image build -t shaik1128/studentcourse:latest ."
             }
         }
 
         stage('push to registry') {
             steps {
-                sh "sudo docker push shaik1128/studentcourse:latest"
+                sh "docker push shaik1128/studentcourse:latest"
             }
         }
 
