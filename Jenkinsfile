@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent(labels 'azure_node' )
     triggers {
         pollSCM('* 23 * * 1-5')
 }
